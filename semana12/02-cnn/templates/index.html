@@ -1,0 +1,21 @@
+<!doctype html>
+<title>Clasificador perros y gatos</title>
+<h2>Seleccione archivo para subir</h2>
+<p>
+	{% with messages = get_flashed_messages() %}
+	  {% if messages %}
+        Perro: {{ messages[0] }}
+        Gato: {{ messages[1] }}
+	  {% endif %}
+	{% endwith %}
+</p>
+<form method="post" action="/" enctype="multipart/form-data">
+    <dl>
+	<p>
+		<input type="file" name="file" autocomplete="off" required>
+	</p>
+    </dl>
+    <p>
+	<input type="submit" value="Submit">
+    </p>
+</form>

@@ -2,11 +2,11 @@
 # $env:FLASK_APP = "main.py"
 # flask run --host=0.0.0.0
 # recuerde agregar el archivo "regresion.h5"
+# pip install flask
 
 from flask import Flask, render_template, request, redirect, flash
 from keras.models import load_model
 import numpy as np
-from flask import Flask
 
 app = Flask(__name__)
 # para subir archivos
@@ -32,7 +32,7 @@ def index():
 
 
 @app.route('/', methods=['POST'])
-def submit_file():
+def procesar_solicitud():
     if request.method == 'POST':
         print(request.form['primero'], request.form['segundo'])
         if request.form['primero'] and request.form['segundo']:
